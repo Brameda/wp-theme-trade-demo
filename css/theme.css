@@ -1,0 +1,19 @@
+/*
+** 	HTML
+** 	----
+*/
+html {
+	font-family: Bitter, georgia, serif;
+}
+
+
+/* 
+** 
+**  FOOTER
+**  ------
+*/
+
+.footer {
+	width: 100%;
+	background: #060606;
+}
