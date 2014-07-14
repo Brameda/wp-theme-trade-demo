@@ -22,17 +22,27 @@
 		
 		<?php if($product['price_list']):?>
 			
-			<h3><?php _e('Pricelist', 'jm-domain'); ?> <small>MOQ (<?= $product['price_list']['quantity_moq']; ?> &times; ) - LOTS (<?= $product['price_list']['quantity_step']; ?> &times; )</h3>
+			<h3><?php _e('Pricelist', 'jm-domain'); ?> <?php if($product['price_list']['quantity_moq'] > 1): ?> <small>MOQ <?= $product['price_list']['quantity_moq']; ?> &times;</small><?php endif; ?></h3>
 			<table class="table table-striped">
 				<tr>
 					<th>Quantity</th>
-					<th>Price</th>
+					<th>Price per piece</th>
 				</tr>
 			<?php foreach($product['price_list']['tiers'] as $tier): ?>
+				
+				<?php if($product['inventory_quantity'] <= $tier['quantity']):?>
+				<tr>
+					<td><span style="color:red;">TAKE ALL!</span></td>
+					<td><?= price_tag($tier['price']); ?></td>
+				</tr>
+				<?php break; ?>
+				<?php else: ?>
 				<tr>
 					<td><?= $tier['quantity']; ?> &times;</td>
 					<td><?= price_tag($tier['price']); ?></td>
 				</tr>
+				<?php endif; ?>
+				
 			<?php endforeach; ?>
 			</table>
 				
