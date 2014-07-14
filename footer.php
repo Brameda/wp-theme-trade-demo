@@ -62,21 +62,26 @@
 		
         <script>
           $(document).ready(function() {
-            var owl = $('.owl-carousel');
-            owl.owlCarousel({
-				loop:true,
-				    margin:10,
-				    responsiveClass:true,
-				    responsive:{
-				        0:{
-				            items:1,
-				            nav:true
-				        },
+			var count = $(".owl-carousel").children().length;
+			if (count > 1){
+	            var owl = $('.owl-carousel');
+	            owl.owlCarousel({
+					loop:true,
+					    margin:10,
+					    responsiveClass:true,
+					    responsive:{
+					        0:{
+					            items:1,
+					            nav:true
+					        },
 				        
-				    }
-            })
-          })
-		  
+					    }
+	            });
+	        } else {
+	        	$(".owl-carousel").css("display", "block");
+	        }
+		  })
+            
 		  $('#product-tabs a').click(function (e) {
 		    e.preventDefault()
 		    $(this).tab('show')

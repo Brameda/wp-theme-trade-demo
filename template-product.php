@@ -1,4 +1,12 @@
 
+<style>
+
+.tab-content {
+	margin-bottom: 120px;
+}
+
+</style>
+
 <div class="row">
 	<div class="col-sm-5">
 		<div class="owl-carousel">
@@ -12,7 +20,24 @@
 	<div class="col-sm-7">
 		<h1><?= $product['title']; ?></h1>
 		
-		
+		<?php if($product['price_list']):?>
+			
+			<h3><?php _e('Pricelist', 'jm-domain'); ?> <small>MOQ (<?= $product['price_list']['quantity_moq']; ?> &times; ) - LOTS (<?= $product['price_list']['quantity_step']; ?> &times; )</h3>
+			<table class="table table-striped">
+				<tr>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+			<?php foreach($product['price_list']['tiers'] as $tier): ?>
+				<tr>
+					<td><?= $tier['quantity']; ?> &times;</td>
+					<td><?= price_tag($tier['price']); ?></td>
+				</tr>
+			<?php endforeach; ?>
+			</table>
+				
+			
+		<?php endif; ?>
 		
 		<?php if($product['product_class'] == 'variant'):?>
 			<h3><?php _e('Varianten', 'jm-domain'); ?></h3>
@@ -40,15 +65,15 @@
 			</table>
 			
 		<?php else: ?>
-			
+			<h3><?php _e('Inventory', 'jm-domain'); ?></h3>
 			<table class="table table-striped">
 				<tr>
 					<td>Inventory</td>
-					<td><?= $product['inventory_quantity']; ?></td>
+					<td><?= $product['inventory_quantity']; ?> &times;</td>
 				</tr>
 				<tr>
 					<td>Process Time</td>
-					<td><?= $product['inventory_delivery']; ?></td>
+					<td><?= $product['inventory_delivery']; ?> days</td>
 				</tr>
 			</table>
 			
