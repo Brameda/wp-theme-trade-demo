@@ -12,6 +12,8 @@
 	<div class="col-sm-7">
 		<h1><?= $product['title']; ?></h1>
 		
+		
+		
 		<?php if($product['product_class'] == 'variant'):?>
 			<h3><?php _e('Varianten', 'jm-domain'); ?></h3>
 			<table class="table table-striped">
@@ -36,6 +38,20 @@
 					<th><?= $product['inventory_delivery']; ?></th>
 				<tr>
 			</table>
+			
+		<?php else: ?>
+			
+			<table class="table table-striped">
+				<tr>
+					<td>Inventory</td>
+					<td><?= $product['inventory_quantity']; ?></td>
+				</tr>
+				<tr>
+					<td>Process Time</td>
+					<td><?= $product['inventory_delivery']; ?></td>
+				</tr>
+			</table>
+			
 		<?php endif; ?>
 	</div>	
 </div>
