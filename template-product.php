@@ -108,7 +108,7 @@
 		        <?= $product['description']; ?>
 		</div>
 		
-		<div class="tab-pane" id="specification">
+		<div class="tab-pane" id="specifications">
 				<h3>Specifications</h3>
 				<table class="table table-striped">
 					<tr>
