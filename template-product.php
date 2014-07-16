@@ -97,8 +97,8 @@
 	
 	<ul id="product-tabs" class="nav nav-tabs">
 	  <li class="active"><a href="#description">Description</a></li>
-	  <li><a href="#specifiction">Specifiction</a></li>
-	  <li><a href="#attachtments">Attachtments</a></li>
+	  <li><a href="#specifications">Specifications</a></li>
+	  <li><a href="#attachments">Attachments</a></li>
 	</ul>
 	
 	<div class="tab-content">
@@ -108,8 +108,8 @@
 		        <?= $product['description']; ?>
 		</div>
 		
-		<div class="tab-pane" id="specifiction">
-				<h3>Specifiction</h3>
+		<div class="tab-pane" id="specification">
+				<h3>Specifications</h3>
 				<table class="table table-striped">
 					<tr>
 						<th>Product code :</th>
@@ -163,7 +163,7 @@
 				<?php endif; ?>
 		</div>
 		
-		<div class="tab-pane" id="attachtments">
+		<div class="tab-pane" id="attachments">
 			<h3>Attachments</h3>
 			<table class="table table-striped">
 				<tr>
