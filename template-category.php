@@ -11,17 +11,41 @@ get_header();
 
 ?>
 
+<?php
+	$breadcrumbs = get_breadcrumbs();
+?>
 
 <div class="row">
 	<div class="col-md-8">
-		<h2><?php _e('Products in ','jm-domain');?><?php echo str_replace('/', ' ', $category['path']);?></h2>
+<?php if(count($breadcrumbs) > 1): ?>
+<ol class="breadcrumb">
+<?php foreach($breadcrumbs as $breadcrumb): ?>
+	<?php if($breadcrumb === end($breadcrumbs)): ?>
+	<li class="active">
+		<?= $breadcrumb['label']; ?>
+	</li>
+	<?php else: ?>
+	<li>
+		<a href="<?= get_site_url(); ?><?= $breadcrumb['url']; ?>"><?= $breadcrumb['label']; ?></a>
+	</li>
+	<?php endif;?>
+<?php endforeach; ?>
+</ol>
+<?php endif; ?>
 	</div>
 	<div class="col-md-4">
-		<form action="/collection/search/" method="post">
+		<form action="<?= search_url(); ?>" method="get">
 			<label labelfor="q">Search :</label>
-			<input name="q" value="<?php echo $search['meta']['query']; ?>" placeholder="<?php _e('Enter search query','jm_domain');?>" /> <input type="submit" value="<?php _e('Search','jm-domain');?>"/>
-		</form>		
+			<input name="q" value="<?php echo $search['meta']['query']; ?>" placeholder="<?php _e('I\'m shopping for ...','jm_domain');?>" /> <input type="submit" value="<?php _e('Search','jm-domain');?>"/>
+		</form>
 	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<h2><?php _e('Products in ','jm-domain');?><?php echo str_replace('/', ' ', $category['path']);?></h2>
+	</div>
+	
 </div>
 
 
@@ -29,6 +53,14 @@ get_header();
 	<div class="col-md-3">
 	
 		<table class="table table-striped">
+			<?php if($category['path'] != '/'): ?>
+				<tr>
+					<td>
+						<a href="../">&#8598; Back</a>
+					</td>
+				</tr>
+			<?php endif; ?>
+			
 			<?php foreach($category['categories'] as $sub_category): ?>
 				<tr>
 					<td>
