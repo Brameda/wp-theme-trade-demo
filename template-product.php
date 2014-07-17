@@ -8,6 +8,22 @@
 </style>
 
 <div class="row">
+	<div class="col-md-8">
+		<ol class="breadcrumb">
+			<li>
+				<a href="javascript: history.go(-1)">Back</a>
+			</li>
+		</ol>
+	</div>
+	<div class="col-md-4">
+		<form action="<?= search_url(); ?>" method="get">
+			<label labelfor="q">Search :</label>
+			<input name="q" value="<?= $search['meta']['query']; ?>" placeholder="<?php _e('I\'m shopping for ...','jm_domain');?>" /> <input type="submit" value="<?php _e('Search','jm-domain');?>"/>
+		</form>
+	</div>
+</div>
+
+<div class="row">
 	<div class="col-sm-5">
 		<div class="owl-carousel">
 			<?php foreach($product['images'] as $image): ?>
