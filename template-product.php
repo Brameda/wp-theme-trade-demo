@@ -46,7 +46,7 @@
 				</tr>
 			<?php foreach($product['price_list']['tiers'] as $tier): ?>
 				
-				<?php if($product['inventory_quantity'] <= $tier['quantity']):?>
+				<?php if(($product['inventory_quantity'] <= $tier['quantity']) and ($product['inventory'] > 0)):?>
 				<tr>
 					<td><span style="color:red;">TAKE ALL!</span></td>
 					<td><?= price_tag($tier['price']); ?></td>
@@ -54,7 +54,11 @@
 				<?php break; ?>
 				<?php else: ?>
 				<tr>
-					<td><?= $tier['quantity']; ?> &times;</td>
+					<?php if($tier['quantity'] == 999999): ?>
+						<td><span style="color:red;">TAKE ALL!</span></td>
+					<?php else: ?>
+						<td><?= $tier['quantity']; ?> &times;</td>
+					<?php endif; ?>
 					<td><?= price_tag($tier['price']); ?></td>
 				</tr>
 				<?php endif; ?>

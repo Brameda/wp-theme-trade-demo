@@ -65,7 +65,12 @@
 		                'walker'            => new wp_bootstrap_navwalker())
 		            );
 		        ?>
-		    </div>
+			
+				<p class="navbar-text">
+					phone : +31 (0)40 78 200 88 - email : info@westocklots.com - Chat with us
+				</p>
+				
+			</div>
 		</nav>
 		
 		
