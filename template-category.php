@@ -86,7 +86,7 @@ get_header();
 	</div>
 	
 	<div class="col-md-9">
-	<?php if( !empty($category['products'])): ?>	
+	<?php if( !empty($category['products']['results'])): ?>	
 
 <style>
 
@@ -128,6 +128,19 @@ get_header();
 	</tr>
 </table>
 
+	</div>
+	
+<?php else:?>
+	<div class="row">
+	
+		<?php foreach($category['categories'] as $sub_category): ?>
+			<div class="col-md-3" >
+				<div style="text-align:center; height:200px; background:#e8e8e8; border:1px solid #dcdcdc; padding: 0 4px;">
+					<a href="<?= category_url($sub_category); ?>"><h3><?php echo $sub_category['title']; ?></h3></a>
+				</div>
+			</div>
+		<?php endforeach;?>
+	
 	</div>
 <?php endif; ?>
 
