@@ -135,7 +135,7 @@ get_header();
 	
 		<?php foreach($category['categories'] as $sub_category): ?>
 			<div class="col-md-3" >
-				<div style="text-align:center; height:200px; background:#e8e8e8; border:1px solid #dcdcdc; padding: 0 4px;">
+				<div style="text-align:center; height:200px; background:#e8e8e8; border:1px solid #dcdcdc; padding: 60px 4px;">
 					<a href="<?= category_url($sub_category); ?>"><h3><?php echo $sub_category['title']; ?></h3></a>
 				</div>
 			</div>
