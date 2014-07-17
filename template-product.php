@@ -66,7 +66,7 @@
 		<?php endif; ?>
 		
 		<?php if($product['product_class'] == 'variant'):?>
-			<h3><?php _e('Varianten', 'jm-domain'); ?></h3>
+			<h3><?php _e('Variants', 'jm-domain'); ?></h3>
 			<table class="table table-striped">
 				<tr>
 					<th>Art Number</th>
