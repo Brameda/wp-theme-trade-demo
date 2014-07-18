@@ -67,14 +67,11 @@
 		        ?>
 			
 				<p class="navbar-text">
-					
-					<?php print_r($_SERVER); ?>
-					
-					<?php if($_SERVER['SERVER_NAME'] == 'portal.westocklots.com'): ?>
+					<?php if($_SERVER['SERVER_NAME'] == 'portal-beta.westocklots.com'): ?>
 						phone : +31 (0)40 78 200 88 - email : info@westocklots.com - Chat with us
 					<?php endif; ?>
 					
-					<?php if($_SERVER['SERVER_NAME'] == 'portal.actiepartner.nl'): ?>
+					<?php if($_SERVER['SERVER_NAME'] == 'portal-beta.actiepartner.nl'): ?>
 						phone : +31 (0)40 78 200 88 - email : info@actiepartner.nl - Chat with us
 					<?php endif; ?>
 				</p>
