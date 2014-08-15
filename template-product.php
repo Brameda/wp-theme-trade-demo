@@ -96,16 +96,28 @@
 			
 		<?php else: ?>
 			<h3><?php _e('Inventory', 'jm-domain'); ?></h3>
-			<table class="table table-striped">
-				<tr>
-					<td>Inventory</td>
-					<td><?= $product['inventory_quantity']; ?> &times;</td>
-				</tr>
-				<tr>
-					<td>Process Time</td>
-					<td><?= $product['inventory_delivery']; ?> days</td>
-				</tr>
-			</table>
+			<form action="/wordpress/basket/" method="post">
+				<input name="code" type="hidden" value="<?= $product['code']; ?>">
+				<table class="table table-striped">
+					<tr>
+						<td>Inventory</td>
+						<td><?= $product['inventory_quantity']; ?> &times;</td>
+					</tr>
+					<tr>
+						<td>Process Time</td>
+						<td><?= $product['inventory_delivery']; ?> days</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input name="quantity" type="text" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><button type="submit" name="order">Order</button></td>
+					</tr>
+				</table>
+				
+			</form>
 			
 		<?php endif; ?>
 	</div>	
